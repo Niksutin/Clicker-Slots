@@ -22,19 +22,19 @@ export default class SlotMachineScreen extends React.Component {
     this.PanResponder = PanResponder.create({
       onStartShouldSetPanResponder: (event, gestureState) => true,
       onPanResponderMove: (event, gestureState) => {
-        if (gestureState.dx >= 150 && !this.state.isMaxValue) {
+        if (gestureState.dy >= 150 && !this.state.isMaxValue) {
           console.log('MaxValueReached');
-          this.position.setValue({x: 150, y: 0});
+          this.position.setValue({x: 0, y: 150});
           this.setState({isMaxValue: true, isMinValue: false}, this.onMaxValueReached());
-        } else if (gestureState.dx <= 0 && !this.state.isMinValue) {
+        } else if (gestureState.dy <= 0 && !this.state.isMinValue) {
           console.log('MinValueReached');
           this.position.setValue({x: 0, y: 0});
           this.setState({isMaxValue: false, isMinValue: true});
-        } else if (gestureState.dx < 150 && gestureState.dx > 0){
-          this.position.setValue({x: gestureState.dx, y: 0});
+        } else if (gestureState.dy < 150 && gestureState.dy > 0){
+          this.position.setValue({x: 0, y: gestureState.dy});
           this.setState({isMaxValue: false, isMinValue: false});
         }
-    },
+      },
       onPanResponderRelease: (event, gestureState) => {
         this.position.setValue({x: 0, y: 0});
       },
@@ -55,13 +55,14 @@ export default class SlotMachineScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: 'grey',
-    width: 250,
+    height: 260,
     borderRadius: 50,
+    marginLeft: 10
   },
   slider: {
     borderRadius: 50,
-    width: 100,
-    height: 50,
+    width: 50,
+    height: 100,
     backgroundColor: 'lightgrey',
   }
 })
