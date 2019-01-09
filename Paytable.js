@@ -11,20 +11,20 @@ export default class Paytable extends React.Component {
       <View style={styles.paytableContainer}>
         <Text style={styles.paytableHeader}>Paytable</Text>
         <View style={styles.paytableColumnContainer}>
-          <View>
+          <View style={styles.paytableSymbolsContainer}>
             <Text style={styles.paytableSymbolsText}>Symbols</Text>
-            <Text style={styles.paytableText}><Image style={styles.image} source={require('./assets/coin1.png')}/>{' = 2'}</Text>
-            <Text style={styles.paytableText}><Image style={styles.image} source={require('./assets/coin2.png')}/>{' = 5'}</Text>
-            <Text style={styles.paytableText}><Image style={styles.image} source={require('./assets/coin3.png')}/>{' = 20'}</Text>
-            <Text style={styles.paytableText}><Image style={styles.image} source={require('./assets/coin3.png')}/>{' = 20'}</Text>
+            <Text style={styles.paytableText}><Image style={styles.imageSymbol} source={require('./assets/checksum.png')}/>{' = 2'}</Text>
+            <Text style={styles.paytableText}><Image style={styles.imageSymbol} source={require('./assets/heart.png')}/>{' = 5'}</Text>
+            <Text style={styles.paytableText}><Image style={styles.imageSymbol} source={require('./assets/lightning.png')}/>{' = 10'}</Text>
+            <Text style={styles.paytableText}><Image style={styles.imageSymbol} source={require('./assets/star.png')}/>{' = 20'}</Text>
           </View>
-          <View>
+          <View style={styles.paytableLanesContainer}>
             <Text style={styles.paytableLanesText}>Lanes</Text>
-            <Text style={styles.paytableText}><Image style={styles.image} source={require('./assets/coin1.png')}/>{' x3'}</Text>
-            <Text style={styles.paytableText}><Image style={styles.image} source={require('./assets/coin2.png')}/>{' x3'}</Text>
-            <Text style={styles.paytableText}><Image style={styles.image} source={require('./assets/coin3.png')}/>{' x3'}</Text>
-            <Text style={styles.paytableText}><Image style={styles.image} source={require('./assets/coin3.png')}/>{' x3'}</Text>
-            <Text style={styles.paytableText}><Image style={styles.image} source={require('./assets/coin3.png')}/>{' x3'}</Text>
+            <Image style={styles.imageLane} source={require('./assets/row0.png')}/>
+            <Image style={styles.imageLane} source={require('./assets/row1.png')}/>
+            <Image style={styles.imageLane} source={require('./assets/row2.png')}/>
+            <Image style={styles.imageLane} source={require('./assets/diag0.png')}/>
+            <Image style={styles.imageLane} source={require('./assets/diag1.png')}/>
           </View>
         </View>
       </View>
@@ -53,20 +53,34 @@ const styles = StyleSheet.create({
   },
   paytableText: {
     color: 'white',
-    padding: 5
+    alignSelf: 'center',
+    padding: 3
   },
   paytableSymbolsText: {
-    borderBottomWidth: 1,
     alignSelf: 'center',
     fontSize: 20,
   },
   paytableLanesText: {
-    borderBottomWidth: 1,
     alignSelf: 'center',
     fontSize: 20,
   },
-  image: {
+  paytableLanesContainer: {
+    width: 100
+  },
+  paytableSymbolsContainer: {
+    width: 100
+  },
+  imageSymbol: {
     height: 20,
     width: 20,
+  },
+  imageLane: {
+    borderWidth: 1,
+    borderColor: 'white',
+    alignSelf: 'center',
+    borderRadius: 3,
+    height: 20,
+    width: 20,
+    margin: 5,
   }
 });

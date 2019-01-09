@@ -55,17 +55,21 @@ export default class Reels extends React.Component {
     let rand = Math.random() * 1;
 
     for (let i = 0; i < 30; i++) {
-      if (rand < 0.5) {
+      if (rand < 0.4) {
         array.push(
-          new Symbol(2, require('./assets/coin1.png'), styles.scrollItem)
+          new Symbol(2, require('./assets/checksum.png'), styles.scrollItem)
         )
-      } else if (rand > 0.5 && rand < 0.8) {
+      } else if (rand > 0.4 && rand < 0.7) {
         array.push(
-          new Symbol(5, require('./assets/coin2.png'), styles.scrollItem)
+          new Symbol(5, require('./assets/heart.png'), styles.scrollItem)
+        )
+      } else if (rand > 0.7 && rand < 0.9) {
+        array.push(
+          new Symbol(10, require('./assets/lightning.png'), styles.scrollItem)
         )
       } else {
         array.push(
-          new Symbol(20, require('./assets/coin3.png'), styles.scrollItem)
+          new Symbol(20, require('./assets/star.png'), styles.scrollItem)
         )
       }
       rand = Math.random() * 1;
@@ -243,7 +247,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'lightgrey',
+    backgroundColor: '#333333',
     borderRadius: 17,
     borderWidth:10,
     borderColor: 'grey',
@@ -260,7 +264,7 @@ const styles = StyleSheet.create({
     width: 80,
   },
   scrollItemHighlight: {
-    borderRadius: 50,
+    borderRadius: 10,
     borderColor: 'white', 
     height: 80,
     width: 80,

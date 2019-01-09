@@ -27,7 +27,18 @@ export default class SlotMachineScreen extends React.Component {
   }
 
   playSlots = () => {
-    this.refs[REELS_REF].onStart();
+    if (this.props.screenProps.balance > 0) {
+      this.refs[REELS_REF].onStart();
+    } else {
+      Alert.alert(
+        'Not enough credits!',
+        'You must play clicker minigame for more credits.',
+        [
+          { text: 'OK', onPress: () => console.log('OK Pressed') },
+        ],
+        { cancelable: false }
+      )
+    }
   }
 
   render() {
