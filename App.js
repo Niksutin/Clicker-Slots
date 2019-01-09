@@ -38,11 +38,11 @@ export default class App extends React.Component {
   }
 
   loadBalance = async () => {
-    console.log('loadBalance was called');
+    //console.log('loadBalance was called');
     try {
       await AsyncStorage.getItem('@ClickerSlots/balance').then((item) => {
         if (item != null) {
-          console.log('loading was successfull');
+          //console.log('loading was successfull');
           this.setState({balance: Number(item)});
         } else {
           this.setState({balance: 0});
@@ -54,11 +54,11 @@ export default class App extends React.Component {
   }
 
   loadLatestPrize = async () => {
-    console.log('loadLatestPrize was called');
+    //console.log('loadLatestPrize was called');
     try {
       await AsyncStorage.getItem('@ClickerSlots/latestPrize').then((item) => {
         if (item != null) {
-          console.log('loading was successfull');
+          //console.log('loading was successfull');
           this.setState({latestPrize: Number(item)});
         } else {
           this.setState({latestPrize: 0});
@@ -70,11 +70,11 @@ export default class App extends React.Component {
   }
 
   loadBestStreak = async () => {
-    console.log('loadBestStreak was called');
+    //console.log('loadBestStreak was called');
     try {
       await AsyncStorage.getItem('@ClickerSlots/bestStreak').then((item) => {
         if (item != null) {
-          console.log('loading was successfull');
+          //console.log('loading was successfull');
           this.setState({bestStreak: Number(item)});
         } else {
           this.setState({bestStreak: 0});
@@ -86,30 +86,30 @@ export default class App extends React.Component {
   }
 
   saveBalance = async () => {
-    console.log('saveBalance was called');
+    //console.log('saveBalance was called');
     try {
       await AsyncStorage.setItem('@ClickerSlots/balance', String(this.state.balance));
-      console.log('saving was successfull');
+      //console.log('saving was successfull');
     } catch (error) {
       console.log(error);
     }
   }
 
   saveLatestPrize = async () => {
-    console.log('saveLatestPrize was called');
+    //console.log('saveLatestPrize was called');
     try {
       await AsyncStorage.setItem('@ClickerSlots/latestPrize', String(this.state.latestPrize));
-      console.log('saving was successfull');
+      //console.log('saving was successfull');
     } catch (error) {
       console.log(error);
     }
   }
 
   saveBestStreak = async () => {
-    console.log('saveBestStreak was called');
+    //console.log('saveBestStreak was called');
     try {
       await AsyncStorage.setItem('@ClickerSlots/bestStreak', String(this.state.bestStreak));
-      console.log('saving was successfull');
+      //console.log('saving was successfull');
     } catch (error) {
       console.log(error);
     }
